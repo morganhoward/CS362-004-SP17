@@ -699,9 +699,12 @@ int card_adventurer(struct gameState *state, int currentPlayer)
  */
 int card_smithy(struct gameState *state, int currentPlayer, int handPos)
 {
+    // vars
+    int i = 0;
+
     // BUG: smithy should only draw 3 cards, not 4 (e.g. 0, 1, 2, and 3 is 4)
     // for (int i = 0; i < 3; i++)
-    for (int i = 0; i < 4; i++)
+    for (i = 0; i < 4; i++)
     {
         drawCard(currentPlayer, state);
     }
