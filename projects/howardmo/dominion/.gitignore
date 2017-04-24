@@ -1,0 +1,6 @@
+*.gcno
+*.gcda
+cardtest?
+unittest?
+*.txt
+*.dSYM

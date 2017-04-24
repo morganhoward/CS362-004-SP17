@@ -538,7 +538,7 @@ int drawCard(int player, struct gameState *state)
     state->deckCount[player] = state->discardCount[player];
     state->discardCount[player] = 0;//Reset discard
 
-    //Shufffle the deck
+    //Shuffle the deck
     shuffle(player, state);//Shuffle the deck up and make it so that we can draw
    
     if (DEBUG){//Debug statements
@@ -745,9 +745,9 @@ int card_village(struct gameState *state, int currentPlayer, int handPos)
     drawCard(currentPlayer, state);
 
     // +2 actions
-    // BUG: Instead of adding two actions, village zeroes out actions
+    // BUG: Instead of adding two actions, village adds 3 actions
     //state->numActions = state->numActions + 2;
-    state->numActions = 0;
+    state->numActions = state->numActions + 3;
 
     // discard current card
     discardCard(handPos, currentPlayer, state, 0);
@@ -1033,29 +1033,37 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             if (choice1)        //+2 coins
             {
                 state->coins = state->coins + 2;
-            } else if (choice2)        //discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
+            }
+            else if (choice2)        //discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
             {
                 //discard hand
-                while (numHandCards(state) > 0) {
+                while (numHandCards(state) > 0)
+                {
                     discardCard(handPos, currentPlayer, state, 0);
                 }
 
                 //draw 4
-                for (i = 0; i < 4; i++) {
+                for (i = 0; i < 4; i++)
+                {
                     drawCard(currentPlayer, state);
                 }
 
                 //other players discard hand and redraw if hand size > 4
-                for (i = 0; i < state->numPlayers; i++) {
-                    if (i != currentPlayer) {
-                        if (state->handCount[i] > 4) {
+                for (i = 0; i < state->numPlayers; i++)
+                {
+                    if (i != currentPlayer)
+                    {
+                        if (state->handCount[i] > 4)
+                        {
                             //discard hand
-                            while (state->handCount[i] > 0) {
+                            while (state->handCount[i] > 0)
+                            {
                                 discardCard(handPos, i, state, 0);
                             }
 
                             //draw 4
-                            for (j = 0; j < 4; j++) {
+                            for (j = 0; j < 4; j++)
+                            {
                                 drawCard(i, state);
                             }
                         }
@@ -1066,14 +1074,19 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             return 0;
 
         case steward:
-            if (choice1 == 1) {
+            if (choice1 == 1)
+            {
                 //+2 cards
                 drawCard(currentPlayer, state);
                 drawCard(currentPlayer, state);
-            } else if (choice1 == 2) {
+            }
+            else if (choice1 == 2)
+            {
                 //+2 coins
                 state->coins = state->coins + 2;
-            } else {
+            }
+            else
+            {
                 //trash 2 cards in hand
                 discardCard(choice2, currentPlayer, state, 1);
                 discardCard(choice3, currentPlayer, state, 1);
@@ -1283,7 +1296,7 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
 
 int gainCard(int supplyPos, struct gameState *state, int toFlag, int player)
 {
-  //Note: supplyPos is enum of choosen card
+  //Note: supplyPos is enum of chosen card
 	
   //check if supply pile is empty (0) or card is not used in game (-1)
   if ( supplyCount(supplyPos, state) < 1 )
@@ -1327,20 +1340,20 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
   //add coins for each Treasure card in player's hand
   for (i = 0; i < state->handCount[player]; i++)
-    {
+  {
       if (state->hand[player][i] == copper)
-	{
-	  state->coins += 1;
-	}
+      {
+          state->coins += 1;
+      }
       else if (state->hand[player][i] == silver)
-	{
-	  state->coins += 2;
-	}
+      {
+          state->coins += 2;
+      }
       else if (state->hand[player][i] == gold)
-	{
-	  state->coins += 3;
-	}	
-    }	
+      {
+          state->coins += 3;
+      }
+  }
 
   //add bonus
   state->coins += bonus;
