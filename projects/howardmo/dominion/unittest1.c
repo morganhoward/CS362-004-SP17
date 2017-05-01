@@ -1,12 +1,12 @@
 /*
 Created by Morgan Howard on 4/23/17.
-Test the function isGameOver
+Test the function isGameOver()
 
 Game ending conditions for dominion are:
  A. The province pile is empty
  B. Any three supply piles are empty (2-4 players), or four piles (5+ players)
- C. The colony pile is empty
- D. Game ends after any other end of turn effects
+ C. The colony pile is empty (N/A - not using colony cards)
+
  */
 
 #include "dominion.h"
@@ -17,7 +17,11 @@ Game ending conditions for dominion are:
 #include "rngs.h"
 
 
-// bash-style return vals, 0 = true, 1 = false
+/* bash-style return vals, 0 = true, 1 = false
+ noise values:
+ 0 - print both
+ 1 - print only fail
+ */
 int assertTrue(int value1, int value2, int noise)
 {
     int assert_result = -1;
@@ -31,10 +35,7 @@ int assertTrue(int value1, int value2, int noise)
     }
     else
     {
-        if (noise == 0)
-        {
-            printf("FAIL %d %d\n", value1, value2);
-        }
+        printf("FAIL %d %d\n", value1, value2);
         assert_result = 1;
     }
     return assert_result;
@@ -42,7 +43,7 @@ int assertTrue(int value1, int value2, int noise)
 
 int main()
 {
-
+    printf("\n-------- unittest1 --------\n");
     // init game state
     struct gameState G, testG;
     int seed = 100;
@@ -64,36 +65,35 @@ int main()
     // make copy of the game state
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    //-----Test A-----
+    // Test A --------------------------------------------------------------------------------------
     // Check if isGameOver returns 1 if there are 0 provinces
-    printf("*** Test A started ***\n");
+
     int assert_value = 0;
     int result = 13;
     int i = 0;
     int numVictoryCardsEach = 8;
     for (i = 0; i < numVictoryCardsEach + 1; i++)
     {
-        printf("%d: ", i);
+        //printf("%d: ", i);
         result = isGameOver(&G);
         if (i == numVictoryCardsEach)
         {
-            assert_value = assertTrue(result, 1, 0);
+            assert_value = assertTrue(result, 1, 1);
             assert_value += assert_value;
         }
         else
         {
-            assert_value = assertTrue(result, 0, 0);
+            assert_value = assertTrue(result, 0, 1);
             assert_value += assert_value;
         }
         G.supplyCount[province]--;
     }
     printf("Test A ");
     assertTrue(assert_value, 0, 0);
-    printf("*** Test A finished ***\n");
 
-    //-----Test B-----
+    // Test B --------------------------------------------------------------------------------------
     // Check if isGameOver returns 1 when three supply piles are zeroed out
-    printf("*** Test B started ***\n");
+
     assert_value = 0;
     int assert_value1 = 0;
     int assert_value2 = 0;
@@ -111,28 +111,27 @@ int main()
                     continue;
                 }
 
-                printf("iter [%d, %d, %d]: \n", i1, i2, i3);
+                //printf("iter [%d, %d, %d]: \n", i1, i2, i3);
                 initializeGame(numPlayers, k, seed, &testB);
 
-                printf("\tpre check: ");
+                //printf("\tpre check: ");
                 result = isGameOver(&testB);
-                assert_value1 = assertTrue(result, 0, 0);
+                assert_value1 = assertTrue(result, 0, 1);
                 assert_value += assert_value1;
 
                 testB.supplyCount[i1] = 0;
                 testB.supplyCount[i2] = 0;
                 testB.supplyCount[i3] = 0;
 
-                printf("\tpost check: ");
+                //printf("\tpost check: ");
                 result = isGameOver(&testB);
-                assert_value2 = assertTrue(result, 1, 0);
+                assert_value2 = assertTrue(result, 1, 1);
                 assert_value += assert_value2;
             }
         }
     }
     printf("Test B ");
     assertTrue(assert_value, 0, 0);
-    printf("*** Test B finished ***\n");
 
     return 0;
 }

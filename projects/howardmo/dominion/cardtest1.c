@@ -19,10 +19,11 @@ C. no state change to victory and kingdom card piles
 #include "rngs.h"
 #include "interface.h"
 
-// bash-style return vals, 0 = true, 1 = false
-// noise values:
-// 0 - print both
-// 1 - print only fail
+/* bash-style return vals, 0 = true, 1 = false
+ noise values:
+ 0 - print both
+ 1 - print only fail
+ */
 int assertTrue(int value1, int value2, int noise)
 {
     int assert_result = -1;
@@ -44,7 +45,7 @@ int assertTrue(int value1, int value2, int noise)
 
 int main()
 {
-    printf("-------- cardtest1 --------\n");
+    printf("\n-------- cardtest1 --------\n");
     // init game state
     struct gameState G, testG;
     int assert_value, i, result;
@@ -64,9 +65,11 @@ int main()
     };
 
     initializeGame(numPlayers, k, seed, &G);
+    G.hand[0][0] = smithy;
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    printf("\n*** Test A started ***\n");
+    // Test A --------------------------------------------------------------------------------------
+    // player should draw 3 cards (hand: +3 - 1; deck: -3; played: +1)
     assert_value = 0;
     // play card
     cardEffect(smithy, choice1, choice2, choice3, &testG, handpos, &bonus);
@@ -80,11 +83,15 @@ int main()
     result = assertTrue(G.handCount[0] + 3 - 1, testG.handCount[0], 1);
     assert_value += result;
 
+    // test hand playedcardcount should be one more than baseline (played adventurer)
+    result = assertTrue(G.playedCardCount + 1, testG.playedCardCount, 1);
+    assert_value += result;
+
     printf("Test A ");
     assertTrue(assert_value, 0, 0);
-    printf("*** Test A finished ***\n");
 
-    printf("\n*** Test B started ***\n");
+    // Test B --------------------------------------------------------------------------------------
+    // no state change for other players
     assert_value = 0;
     result = assertTrue(G.deckCount[1], testG.deckCount[1], 1);
     assert_value += result;
@@ -94,9 +101,9 @@ int main()
 
     printf("Test B ");
     assertTrue(assert_value, 0, 0);
-    printf("*** Test B finished ***\n");
 
-    printf("\n*** Test C started ***\n");
+    // Test C --------------------------------------------------------------------------------------
+    // no state change to victory and kingdom card piles
     assert_value = 0;
 
     for (i = 0; i < treasure_map + 1; i++)
@@ -106,7 +113,6 @@ int main()
     }
     printf("Test C ");
     assertTrue(assert_value, 0, 0);
-    printf("*** Test C finished ***\n");
 
     return 0;
 }

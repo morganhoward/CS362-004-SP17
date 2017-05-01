@@ -27,7 +27,7 @@ Test Adventurer card
  noise values:
  0 - print both
  1 - print only fail
-*/
+ */
 int assertTrue(int value1, int value2, int noise)
 {
     int assert_result = -1;
@@ -67,7 +67,7 @@ int count_treasure_cards(struct gameState *state)
 
 int main()
 {
-    printf("-------- cardtest2 --------\n");
+    printf("\n-------- cardtest2 --------\n");
     // init game state
     struct gameState G, testG;
     int assert_value, result;

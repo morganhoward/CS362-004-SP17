@@ -4,3 +4,5 @@ cardtest?
 unittest?
 *.txt
 *.dSYM
+.idea/
+

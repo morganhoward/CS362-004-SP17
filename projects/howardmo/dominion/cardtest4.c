@@ -5,6 +5,11 @@ Test great hall
  +1 action
  +1 victory point
 
+  Business requirements:
+ A. player draws one card (has same number of cards after playing; e.g. +1 -1)
+ B. player has one more actions after playing card (e.g. 2 available actions)
+ C. no state change for other players
+ D. no state change to victory and kingdom card piles
  */
 
 #include "dominion.h"
@@ -40,7 +45,7 @@ int assertTrue(int value1, int value2, int noise)
 
 int main()
 {
-    printf("-------- cardtest1 --------\n");
+    printf("\n-------- cardtest4 --------\n");
     // init game state
     struct gameState G, testG;
     int assert_value, i, result;
@@ -61,6 +66,68 @@ int main()
 
     initializeGame(numPlayers, k, seed, &G);
     memcpy(&testG, &G, sizeof(struct gameState));
+
+    // play card
+    cardEffect(great_hall, choice1, choice2, choice3, &testG, handpos, &bonus);
+
+    // Test A --------------------------------------------------------------------------------------
+    // hand count is the same (+1 -1) but discard pile is +1
+    // Found Bug: discardCard() doesn't add to discard pile (which is correct according to rules but fxn name is misleading);
+    // however, endTurn() should move played cards to the discard pile but it doesn't.
+    assert_value = 0;
+
+    result = assertTrue(G.handCount[0], testG.handCount[0], 1);
+    assert_value += result;
+
+    /*
+    printDiscard(0, &testG);
+    printPlayed(0, &testG);
+    endTurn(&testG);
+    printDiscard(0, &testG);
+    printPlayed(0, &testG);
+    printf("%d %d\n", G.discardCount[0], testG.discardCount[0]);
+    result = assertTrue(G.discardCount[0] +1, testG.discardCount[0], 1);
+     */
+    result = assertTrue(G.playedCardCount + 1, testG.playedCardCount, 1);
+    assert_value += result;
+
+    printf("Test A ");
+    assertTrue(assert_value, 0, 0);
+
+    // Test B --------------------------------------------------------------------------------------
+    // player has one more action after playing card (e.g. 2 available actions)
+
+    assert_value = 0;
+
+    result = assertTrue(G.numActions + 1, testG.numActions, 1);
+    assert_value += result;
+
+    printf("Test B ");
+    assertTrue(assert_value, 0, 0);
+
+    // Test C --------------------------------------------------------------------------------------
+    // no change in other player's hand
+    assert_value = 0;
+    result = assertTrue(G.deckCount[1], testG.deckCount[1], 1);
+    assert_value += result;
+
+    result = assertTrue(G.handCount[1], testG.handCount[1], 1);
+    assert_value += result;
+
+    printf("Test C ");
+    assertTrue(assert_value, 0, 0);
+
+    // Test D --------------------------------------------------------------------------------------
+    // no change in kingdom and victory card piles
+    assert_value = 0;
+
+    for (i = 0; i < treasure_map + 1; i++)
+    {
+        result = assertTrue(G.supplyCount[i], testG.supplyCount[i], 1);
+        assert_value += result;
+    }
+    printf("Test D ");
+    assertTrue(assert_value, 0, 0);
 
     return 0;
 }

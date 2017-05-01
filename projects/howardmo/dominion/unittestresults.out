@@ -1,0 +1,218 @@
+Unit test results
+
+
+-------- unittest1 --------
+Test A PASS
+Test B PASS
+Function 'isGameOver'
+Lines executed:100.00% of 12
+
+-------- unittest2 --------
+Test A PASS
+Function 'getCost'
+Lines executed:93.33% of 30
+        -:  591:int getCost(int cardNumber)
+        -:  592:{
+       26:  593:  switch( cardNumber ) 
+        -:  594:    {
+        -:  595:    case curse:
+        1:  596:      return 0;
+        -:  597:    case estate:
+        1:  598:      return 2;
+        -:  599:    case duchy:
+        1:  600:      return 5;
+        -:  601:    case province:
+        1:  602:      return 8;
+        -:  603:    case copper:
+        1:  604:      return 0;
+        -:  605:    case silver:
+        1:  606:      return 3;
+        -:  607:    case gold:
+        1:  608:      return 6;
+        -:  609:    case adventurer:
+        1:  610:      return 6;
+        -:  611:    case council_room:
+        1:  612:      return 5;
+        -:  613:    case feast:
+        1:  614:      return 4;
+        -:  615:    case gardens:
+        1:  616:      return 4;
+        -:  617:    case mine:
+        1:  618:      return 5;
+        -:  619:    case remodel:
+        1:  620:      return 4;
+        -:  621:    case smithy:
+        1:  622:      return 4;
+        -:  623:    case village:
+        1:  624:      return 3;
+        -:  625:    case baron:
+        1:  626:      return 4;
+        -:  627:    case great_hall:
+        1:  628:      return 3;
+        -:  629:    case minion:
+        1:  630:      return 5;
+        -:  631:    case steward:
+        1:  632:      return 3;
+        -:  633:    case tribute:
+        1:  634:      return 5;
+        -:  635:    case ambassador:
+        1:  636:      return 3;
+        -:  637:    case cutpurse:
+        1:  638:      return 4;
+        -:  639:    case embargo: 
+        1:  640:      return 2;
+        -:  641:    case outpost:
+        1:  642:      return 5;
+        -:  643:    case salvager:
+        1:  644:      return 4;
+        -:  645:    case sea_hag:
+        1:  646:      return 4;
+        -:  647:    case treasure_map:
+    #####:  648:      return 4;
+        -:  649:    }
+        -:  650:	
+    #####:  651:  return -1;
+       26:  652:}
+
+-------- unittest3 --------
+FAIL 7 6
+Test A FAIL 1 0
+FAIL 0 5
+Test B FAIL 1 0
+Test C PASS
+Function 'endTurn'
+Lines executed:95.45% of 22
+        -:  357:int endTurn(struct gameState *state) {
+        -:  358:  int k;
+        -:  359:  int i;
+        1:  360:  int currentPlayer = whoseTurn(state);
+        -:  361:  
+        -:  362:  //Discard hand
+       12:  363:  for (i = 0; i < state->handCount[currentPlayer]; i++)
+        -:  364:  {
+        5:  365:    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = state->hand[currentPlayer][i];//Discard
+        5:  366:    state->hand[currentPlayer][i] = -1;//Set card to -1
+        5:  367:  }
+        1:  368:  state->handCount[currentPlayer] = 0;//Reset hand count
+        -:  369:    
+        -:  370:  //Code for determining the player
+        1:  371:  if (currentPlayer < (state->numPlayers - 1)){ 
+        1:  372:    state->whoseTurn = currentPlayer + 1;//Still safe to increment
+        1:  373:  }
+        -:  374:  else{
+    #####:  375:    state->whoseTurn = 0;//Max player has been reached, loop back around to player 1
+        -:  376:  }
+        -:  377:
+        1:  378:  state->outpostPlayed = 0;
+        1:  379:  state->phase = 0;
+        1:  380:  state->numActions = 1;
+        1:  381:  state->coins = 0;
+        1:  382:  state->numBuys = 1;
+        1:  383:  state->playedCardCount = 0;
+        1:  384:  state->handCount[state->whoseTurn] = 0;
+        -:  385:
+        -:  386:  //int k; move to top
+        -:  387:  //Next player draws hand
+       12:  388:  for (k = 0; k < 5; k++){
+        5:  389:    drawCard(state->whoseTurn, state);//Draw a card
+        5:  390:  }
+        -:  391:
+        -:  392:  //Update money
+        1:  393:  updateCoins(state->whoseTurn, state , 0);
+        -:  394:
+        1:  395:  return 0;
+        -:  396:}
+
+-------- unittest4 --------
+Test A PASS
+Test B PASS
+FAIL 3 1
+Test C FAIL 1 0
+Test D PASS
+Test E PASS
+Test F PASS
+Test G PASS
+Function 'buyCard'
+Lines executed:100.00% of 13
+
+
+Card test results
+
+-------- cardtest1 --------
+FAIL 2 1
+FAIL 7 8
+Test A FAIL 2 0
+Test B PASS
+Test C PASS
+Function 'card_smithy'
+Lines executed:100.00% of 6
+
+-------- cardtest2 --------
+Test A PASS
+FAIL 6 5
+Test B FAIL 1 0
+Test C PASS
+Test D PASS
+Test E PASS
+Function 'card_adventurer'
+Lines executed:63.16% of 19
+        -:  659:int card_adventurer(struct gameState *state, int currentPlayer)
+        -:  660:{
+        -:  661:    // declare vars
+        1:  662:    int drawn_treasure = 0;
+        1:  663:    int cardDrawn = 0;
+        -:  664:    int temphand[MAX_HAND];
+        1:  665:    int temphand_count = 0;
+        -:  666:
+        6:  667:    while (drawn_treasure < 2)
+        -:  668:    {
+        2:  669:        if (state->deckCount[currentPlayer] < 1)
+        -:  670:        {
+        -:  671:            // if the deck is empty
+    #####:  672:            shuffle(currentPlayer, state);
+    #####:  673:        }
+        -:  674:
+        2:  675:        drawCard(currentPlayer, state);
+        -:  676:        // top card of hand is the most recently drawn card.
+        2:  677:        cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
+        -:  678:
+        2:  679:        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+        -:  680:        {
+        2:  681:            drawn_treasure++;
+        2:  682:        }
+        -:  683:
+        -:  684:        else
+        -:  685:        {
+    #####:  686:            temphand[temphand_count] = cardDrawn;
+    #####:  687:            state->handCount[currentPlayer]--;
+    #####:  688:            temphand_count++;
+        -:  689:        }
+        -:  690:    }
+        -:  691:
+        2:  692:    while (temphand_count - 1 >= 0)
+        -:  693:    {
+        -:  694:        // discard all cards in play that have been drawn
+    #####:  695:        state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[temphand_count - 1];
+    #####:  696:        temphand_count--;
+        -:  697:    }
+        -:  698:
+        -:  699:    // BUG: adventurer card is not discarded
+        -:  700:
+        1:  701:    return 0;
+
+-------- cardtest3 --------
+Test A PASS
+FAIL 3 4
+Test B FAIL 1 0
+Test C PASS
+Test D PASS
+Function 'card_village'
+Lines executed:100.00% of 4
+
+-------- cardtest4 --------
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+Function 'card_great_hall'
+Lines executed:100.00% of 4
