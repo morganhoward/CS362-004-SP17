@@ -74,11 +74,11 @@ int main()
     // play card
     cardEffect(smithy, choice1, choice2, choice3, &testG, handpos, &bonus);
 
-    // this caught the bug i introduced for assignment 2; smithy drawing 4 cards intstead of 3
+    // BUG: this caught the bug i introduced for assignment 2; smithy drawing 4 cards intstead of 3
     result = assertTrue(G.deckCount[0] - 3, testG.deckCount[0], 1);
     assert_value += result;
 
-    // this also caught the same bug caught above; smithy is drawing 4 cards instead of 3
+    // BUG: this also caught the same bug caught above; smithy is drawing 4 cards instead of 3
     // hand should have +3 cards from the draw and -1 from discarding smithy
     result = assertTrue(G.handCount[0] + 3 - 1, testG.handCount[0], 1);
     assert_value += result;

@@ -53,12 +53,12 @@ unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2
 	make unittest2 
 	./unittest2 >> unittestresults.out
 	gcov -f dominion.c | grep -A 1 "getCost" >> unittestresults.out
-	grep -A 61 "getCost(int" dominion.c.gcov | head -62 >> unittestresults.out
+	# grep -A 61 "getCost(int" dominion.c.gcov | head -62 >> unittestresults.out
 	touch dominion.c
 	make unittest3
 	./unittest3 >> unittestresults.out
 	gcov -f dominion.c | grep -A 1 "endTurn" >> unittestresults.out
-	grep -A 40 "endTurn(struct" dominion.c.gcov | head -40 >> unittestresults.out
+	# grep -A 40 "endTurn(struct" dominion.c.gcov | head -40 >> unittestresults.out
 	touch dominion.c
 	make unittest4
 	./unittest4 >> unittestresults.out

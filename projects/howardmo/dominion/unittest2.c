@@ -42,18 +42,18 @@ int assertTrue(int value1, int value2, int noise)
 int main()
 {
     printf("\n-------- unittest2 --------\n");
-    int card_costs[26] = {0, 2, 5, 8, 0,
+    int card_costs[27] = {0, 2, 5, 8, 0,
                           3, 6, 6, 5, 4,
                           4, 5, 4, 4, 3,
                           4, 3, 5, 3, 5,
-                          3, 4, 2, 5, 4, 4};
+                          3, 4, 2, 5, 4, 4, 4};
     char card_name[15];
     int cost = 0;
     int i = 0;
     int assert_value = 0;
 
     // Test A --------------------------------------------------------------------------------------
-    for (i = 0; i < 26; i++)
+    for (i = 0; i < 27; i++)
     {
         cardNumToName(i, card_name);
         //printf ("%s: ", card_name);
@@ -63,6 +63,17 @@ int main()
     }
 
     printf("Test A ");
+    assertTrue(assert_value, 0, 0);
+
+    // Test B --------------------------------------------------------------------------------------
+    assert_value = 0;
+    i = 99;
+
+    cost = getCost(i);
+    assert_value = assertTrue(cost, -1, 1);
+    assert_value += assert_value;
+
+    printf("Test B ");
     assertTrue(assert_value, 0, 0);
 
     return 0;

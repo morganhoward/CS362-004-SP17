@@ -118,6 +118,18 @@ int main()
     printf("Test C ");
     assertTrue(assert_value, 0, 0);
 
+    // Test D --------------------------------------------------------------------------------------
+    // test that next player determination rolls over from 1 to 0
+    assert_value = 0;
+
+    endTurn(&testG);
+
+    result = assertTrue(whoseTurn(&testG), 0, 1);
+    assert_value += result;
+
+    printf("Test D ");
+    assertTrue(assert_value, 0, 0);
+
 
     return 0;
 }

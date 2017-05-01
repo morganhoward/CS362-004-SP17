@@ -112,7 +112,7 @@ int main()
     // after playing, the test hand should have 1 more card (+2 treasure, - 1 adventurer) in hand than the baseline
     assert_value = 0;
 
-    // this catches the bug where the adventurer card isn't discarded immediately after being played
+    // BUG: this catches the bug where the adventurer card isn't discarded immediately after being played
     result = assertTrue(testG.handCount[0] - 1, G.handCount[0], 1);
     assert_value += result;
 
