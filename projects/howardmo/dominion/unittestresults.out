@@ -1,3 +1,6 @@
+Morgan Howard
+CS362 Assignment3
+
 Unit test results
 
 
@@ -59,27 +62,27 @@ Lines executed:63.16% of 19
         -:  659:int card_adventurer(struct gameState *state, int currentPlayer)
         -:  660:{
         -:  661:    // declare vars
-        8:  662:    int drawn_treasure = 0;
-        8:  663:    int cardDrawn = 0;
+       10:  662:    int drawn_treasure = 0;
+       10:  663:    int cardDrawn = 0;
         -:  664:    int temphand[MAX_HAND];
-        8:  665:    int temphand_count = 0;
+       10:  665:    int temphand_count = 0;
         -:  666:
-       48:  667:    while (drawn_treasure < 2)
+       60:  667:    while (drawn_treasure < 2)
         -:  668:    {
-       16:  669:        if (state->deckCount[currentPlayer] < 1)
+       20:  669:        if (state->deckCount[currentPlayer] < 1)
         -:  670:        {
         -:  671:            // if the deck is empty
     #####:  672:            shuffle(currentPlayer, state);
     #####:  673:        }
         -:  674:
-       16:  675:        drawCard(currentPlayer, state);
+       20:  675:        drawCard(currentPlayer, state);
         -:  676:        // top card of hand is the most recently drawn card.
-       16:  677:        cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
+       20:  677:        cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
         -:  678:
-       16:  679:        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+       20:  679:        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
         -:  680:        {
-       16:  681:            drawn_treasure++;
-       16:  682:        }
+       20:  681:            drawn_treasure++;
+       20:  682:        }
         -:  683:
         -:  684:        else
         -:  685:        {
@@ -89,7 +92,7 @@ Lines executed:63.16% of 19
         -:  689:        }
         -:  690:    }
         -:  691:
-       16:  692:    while (temphand_count - 1 >= 0)
+       20:  692:    while (temphand_count - 1 >= 0)
         -:  693:    {
         -:  694:        // discard all cards in play that have been drawn
     #####:  695:        state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[temphand_count - 1];
@@ -98,7 +101,7 @@ Lines executed:63.16% of 19
         -:  698:
         -:  699:    // BUG: adventurer card is not discarded
         -:  700:
-        8:  701:    return 0;
+       10:  701:    return 0;
 
 -------- cardtest3 --------
 Test A PASS

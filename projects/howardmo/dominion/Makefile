@@ -45,7 +45,8 @@ cardtest4: cardtest4.c dominion.o rngs.o interface.o
 	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o interface.o $(CFLAGS)
 
 unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
-	echo "Unit test results\n" > unittestresults.out
+	echo "Morgan Howard\nCS362 Assignment3\n" > unittestresults.out
+	echo "Unit test results\n" >> unittestresults.out
 	make unittest1
 	./unittest1 >> unittestresults.out
 	gcov -f dominion.c | grep -A 1 "isGameOver" >> unittestresults.out

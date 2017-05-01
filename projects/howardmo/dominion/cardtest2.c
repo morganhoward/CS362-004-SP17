@@ -1,5 +1,9 @@
 /*
-Created by Morgan Howard on 4/23/17.
+Name: Morgan Howard
+ONID: howardmo
+Class: CS362
+Assignment: 3
+
 Test Adventurer card
  - Reveal cards from your deck until you reveal 2 treasure cards.
  - Put those treasure cards in your hand.

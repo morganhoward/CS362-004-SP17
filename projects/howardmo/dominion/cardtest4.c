@@ -1,5 +1,9 @@
 /*
-Created by Morgan Howard on 4/23/17.
+Name: Morgan Howard
+ONID: howardmo
+Class: CS362
+Assignment: 3
+
 Test great hall
  +1 card
  +1 action

@@ -1,5 +1,9 @@
 /*
-Created by Morgan Howard on 4/23/17.
+Name: Morgan Howard
+ONID: howardmo
+Class: CS362
+Assignment: 3
+
 Test the function getCost()
 getCost returns the coin cost of a card.  I manually checked the values in the dominion wiki and added them to
  card_costs[], which can now automatically check the getCost().
