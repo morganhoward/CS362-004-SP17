@@ -1,4 +1,4 @@
-CFLAGS = -Wall -fpic -std=c99 -ftest-coverage -fprofile-arcs
+CFLAGS = -Wall -fpic -std=c99 -ftest-coverage -fprofile-arcs -lm
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
