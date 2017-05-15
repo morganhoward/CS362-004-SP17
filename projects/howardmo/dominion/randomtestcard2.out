@@ -1,0 +1,423 @@
+Morgan Howard
+CS362 Assignment4
+
+Random test results for Village
+
+
+-------- randomcardtest2 --------
+
+*** n = 0 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 1 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 2 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 3 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 4 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 5 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 6 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 7 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 8 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 9 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 10 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 11 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 12 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 13 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 14 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 15 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 16 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 17 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 18 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 19 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 20 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 21 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 22 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 23 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 24 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 25 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 26 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 27 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 28 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 29 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 30 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 31 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 32 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 33 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 34 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 35 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 36 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 37 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 38 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 39 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 40 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 41 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 42 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 43 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 44 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 45 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 46 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 47 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 48 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 49 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 50 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 51 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 52 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 53 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 54 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 55 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 56 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 57 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 58 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 59 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 60 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 61 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 62 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 63 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 64 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 65 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 66 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 67 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 68 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 69 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 70 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 71 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 72 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 73 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 74 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 75 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 76 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 77 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 78 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 79 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 80 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 81 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 82 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 83 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 84 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 85 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 86 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 87 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 88 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 89 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 90 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 91 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 92 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 93 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 94 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 95 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 96 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 97 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 98 ***
+FAIL 3 4
+FAIL 1 0
+
+*** n = 99 ***
+FAIL 3 4
+FAIL 1 0
+Function 'card_village'
+Lines executed:100.00% of 4
+        -:  752:int card_village(struct gameState *state, int currentPlayer, int handPos)
+        -:  753:{
+        -:  754:    // +1 card
+      100:  755:    drawCard(currentPlayer, state);
+        -:  756:
+        -:  757:    // +2 actions
+        -:  758:    // BUG: Instead of adding two actions, village adds 3 actions
+        -:  759:    //state->numActions = state->numActions + 2;
+      100:  760:    state->numActions = state->numActions + 3;
+        -:  761:
+        -:  762:    // discard current card
+      100:  763:    discardCard(handPos, currentPlayer, state, 0);
+        -:  764:
+      100:  765:    return 0;

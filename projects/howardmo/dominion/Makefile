@@ -18,7 +18,11 @@ player: player.c interface.o
 all: playdom player
 
 clean:
-	rm -f *.o playdom.exe playdom test.exe test player player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so
+	rm -f *.o playdom player *.gcov *.gcda *.gcno *.so *.out
+	rm -f randomtestadventurer randomtestcard1 randomtestcard2
+	rm -f unittest1 unittest2 unittest3 unittest4
+	rm -f cardtest1 cardtest2 cardtest3 cardtest4
+	rm -rf *.dSYM
 
 unittest1: unittest1.c dominion.o rngs.o
 	gcc -o unittest1 -g unittest1.c dominion.o rngs.o $(CFLAGS)
@@ -43,6 +47,44 @@ cardtest3: cardtest3.c dominion.o rngs.o interface.o
 
 cardtest4: cardtest4.c dominion.o rngs.o interface.o
 	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o interface.o $(CFLAGS)
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o interface.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o interface.o $(CFLAGS)
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o interface.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o interface.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o interface.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o interface.o $(CFLAGS)
+
+randomtestadventurer.out: randomtestadventurer
+	echo "Morgan Howard\nCS362 Assignment4\n" > randomtestadventurer.out
+	echo "Random test results Adventurer\n" >> randomtestadventurer.out
+	make randomtestadventurer
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov -f dominion.c | grep -A 1 "card_adventurer" >> randomtestadventurer.out
+	grep -A 44 "card_adventurer" dominion.c.gcov | head -43 >> randomtestadventurer.out
+
+randomtestcard1.out: randomtestcard1
+	echo "Morgan Howard\nCS362 Assignment4\n" > randomtestcard1.out
+	echo "Random test results for Smithy\n" >> randomtestcard1.out
+	make randomtestcard1
+	./randomtestcard1 >> randomtestcard1.out
+	gcov -f dominion.c | grep -A 1 "card_smithy" >> randomtestcard1.out
+	grep -A 16 "card_smithy" dominion.c.gcov | head -16 >> randomtestcard1.out
+
+randomtestcard2.out: randomtestcard2
+	echo "Morgan Howard\nCS362 Assignment4\n" > randomtestcard2.out
+	echo "Random test results for Village\n" >> randomtestcard2.out
+	make randomtestcard2
+	./randomtestcard2 >> randomtestcard2.out
+	gcov -f dominion.c | grep -A 1 "card_village" >> randomtestcard2.out
+	grep -A 14 "card_village" dominion.c.gcov | head -14 >> randomtestcard2.out
+
+randomtestresults.out: randomtestcard1.out randomtestcard2.out randomtestadventurer.out
+	make randomtestcard1.out
+	make randomtestcard2.out
+	make randomtestadventurer.out
 
 unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
 	echo "Morgan Howard\nCS362 Assignment3\n" > unittestresults.out
