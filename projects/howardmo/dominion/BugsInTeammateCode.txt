@@ -1,0 +1,227 @@
+Bug Report for Doug McCord
+Written by Morgan Howard
+
+*******************************************************************************
+*******************************************************************************
+ID: CS362-DOMINION-MCCORD-001
+Title: endTurn() doesn't have former player draw new hand of 5 cards.
+Type: Bug
+Severity: Minor
+
+Date: 2017-05-25
+Reported By: Morgan Howard
+Email: howardmo@oregonstate.edu
+
+Environment information:
+Product: dominion.c
+Platform: Linux (flip)
+
+Test used: unittest3 test B
+
+Description:
+============
+Dominion rules specify that all players draw a hand of five cards to start the game, and then draw a new hand of five
+cards as the final action of ending a player's turn.  endTurn() does not have a player draw a new hand.
+
+Steps to Produce/Reproduce:
+---------------------------
+1. Initialize a game state.
+2. Note who's turn it is and and print the cards in their hand.
+3. Run endTurn()
+4. Check the previous player's hand.
+
+Expected Results:
+-----------------
+Player who ended their turn should have five new cards in hand.
+
+Actual Results:
+---------------
+Player who ended their turn has no cards in hand.
+
+Proposed Fix:
+-------------
+Move the loop that draws a new hand (lines 378-382 in dominion.c) to line 362 (before the player is changed).
+
+*******************************************************************************
+*******************************************************************************
+ID: CS362-DOMINION-MCCORD-002
+Title: buyCard() doesn't move treasure cards into the played area after they are used
+Type: Bug
+Severity: Minor
+
+Date: 2017-05-25
+Reported By: Morgan Howard
+Email: howardmo@oregonstate.edu
+
+Environment information:
+Product: dominion.c
+Platform: Linux (flip)
+
+Test used: unittest4 testcase C
+
+Description:
+============
+buyCard() doesn't move treasure cards into the played area after they are used.  Rather, the cards stay in the player's
+hand.  The state variable state->coins is adjusted appropriately, but anything that involves hand count will be off.
+
+Steps to Produce/Reproduce:
+---------------------------
+1. Initialize a game state where:
+   a. the supply pile for estate has at least one estate left, and
+   b. the player has at least two coppers in hand.
+2. Print out the cards in the player's hand.
+3. Buy an estate.
+4. Print out the cardsin the player's hand.
+
+Expected Results:
+-----------------
+After buying an estate card, the player's hand should have two fewer coins in it.
+
+Actual Results:
+---------------
+The coin cards will remain in the player's hand.
+
+Workaround:
+-----------
+Leave as is.  The state variable state->coins is updated properly and is used to check if the player has enough coins.
+
+*******************************************************************************
+*******************************************************************************
+ID: CS362-DOMINION-MCCORD-003
+Title: Smithy draws 4 cards instead of 3
+Type: Bug
+Severity: Minor
+
+Date: 2017-05-25
+Reported By: Morgan Howard
+Email: howardmo@oregonstate.edu
+
+Environment information:
+Product: dominion.c
+Platform: Linux (flip)
+
+Test used: randomtestcard1
+
+Description:
+============
+When the Smithy card is played, the current player picks up 4 cards from the deck instead of the 3 decks as
+instructed by the card's action.
+
+Steps to Produce/Reproduce:
+---------------------------
+1. Initialize a game state where:
+   a. there are at least 4 cards in the player's deck, and
+   b. the player has the smithy card in his/her hand.
+2. Count the number of cards in the player's hand.
+3. Play the smithy card.
+4. Count the number of cards in the player's hand.
+5. Compare the before and after counts.
+
+Expected Results:
+-----------------
+The player's hand should have two more (+2) cards in his/her hand after playing smithy (+3 from draw; -1 for playing smithy).
+
+Actual Results:
+---------------
+The player's hand has three more (+3) cards in his/her hand after playing smithy.
+
+Proposed Fix:
+-------------
+Change line 649 in dominion.c from:
+	for (i = 0; i < 4; i++)
+to:
+	for (i = 0; i < 3; i++)
+
+*******************************************************************************
+*******************************************************************************
+ID: CS362-DOMINION-MCCORD-004
+Title: Adventurer card only draws one treasure
+Type: Bug
+Severity: Minor
+
+Date: 2017-05-25
+Reported By: Morgan Howard
+Email: howardmo@oregonstate.edu
+
+Environment information:
+Product: dominion.c
+Platform: Linux (flip)
+
+Test used: randomtestadventurer
+
+Description:
+============
+When the adventurer card is played, the current player stops drawing cards when he draws one treasure
+instead of stopping when he draws two treasure cards as required by the card's actions.
+
+Steps to Produce/Reproduce:
+---------------------------
+1. Initialize a game state where a player's:
+   a. deck has more at least two treasure cards, and
+   b. hand has the adventurer card.
+2. Count the number of treasure cards in the player's hand.
+3. Play the adventurer card.
+4. Count the number of treasure cards in the player's hand.
+5. Compare the before and after counts.
+
+Expected Results:
+-----------------
+The player's hand is expected to have two more (+2) treasure cards in his/her hand.
+
+Actual Results:
+---------------
+The player's hand has at most one more (+1) treasure card in his/her hand.
+
+Proposed Fix:
+-------------
+Change line 609 in dominion.c from:
+	while(drawntreasure<1){
+to:
+	while(drawntreasure<2){
+
+*******************************************************************************
+*******************************************************************************
+ID: CS362-DOMINION-MCCORD-005
+Title: endTurn() doesn't take the cards from the played pile and put them in the discard pile.
+Type: Bug
+Severity: Minor
+
+Date: 2017-05-25
+Reported By: Morgan Howard
+Email: howardmo@oregonstate.edu
+
+Environment information:
+Product: dominion.c
+Platform: Linux (flip)
+
+Test used: unittest3 test A
+
+Description:
+============
+endTurn() does not move played cards into the discard pile.  However, most of the card action code either doesn't
+discard the card or discards itself directly to the discard pile.
+
+Steps to Produce/Reproduce:
+---------------------------
+Review the code for endTurn() and you will see that:
+  a. variables are defined,
+  b. player's hand is discarded,
+  c. active player is changed to the next player,
+  d. several state variables are reset to their default values, and
+  e. new active player draws 5 cards
+
+Expected Results:
+-----------------
+endTurn() is supposed to discard cards played.
+
+Actual Results:
+---------------
+endTurn() doesn't address cards played.
+
+Workarounds:
+------------
+Leave as is.  Most cards don't move into the played area when they are played like they are supposed to.  So, the combined
+effects of endTurn() and cards going directly to the discard pile work together.
+
+*******************************************************************************
+*******************************************************************************
