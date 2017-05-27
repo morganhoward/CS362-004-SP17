@@ -103,9 +103,6 @@ int main()
     int treasure_baseline = 0;
     assert_value = 0;
 
-    printHand(0, &G);
-    printHand(0, &testG);
-
     treasure_test = count_treasure_cards(&testG);
     treasure_baseline = count_treasure_cards(&G);
     result = assertTrue(treasure_test - 2, treasure_baseline, 1);
@@ -126,8 +123,8 @@ int main()
     printf("Test B ");
     assertTrue(assert_value, 0, 0);
 
-    printHand(0, &G);
-    printHand(0, &testG);
+    //printHand(0, &G);
+    //printHand(0, &testG);
 
     // Test C --------------------------------------------------------------------------------------
     //change in deck (x) + 2 should be equal to change in discard (y) ... y = x - 2

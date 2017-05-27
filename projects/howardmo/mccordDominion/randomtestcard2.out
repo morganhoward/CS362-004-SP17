@@ -1,0 +1,604 @@
+Morgan Howard\nCS362 Assignment5\n
+Random test results for Village\n
+
+-------- randomcardtest2 --------
+
+*** n = 0 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 1 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 2 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 3 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 4 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 5 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 6 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 7 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 8 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 9 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 10 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 11 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 12 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 13 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 14 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 15 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 16 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 17 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 18 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 19 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 20 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 21 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 22 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 23 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 24 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 25 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 26 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 27 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 28 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 29 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 30 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 31 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 32 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 33 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 34 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 35 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 36 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 37 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 38 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 39 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 40 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 41 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 42 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 43 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 44 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 45 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 46 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 47 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 48 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 49 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 50 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 51 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 52 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 53 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 54 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 55 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 56 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 57 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 58 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 59 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 60 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 61 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 62 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 63 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 64 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 65 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 66 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 67 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 68 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 69 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 70 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 71 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 72 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 73 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 74 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 75 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 76 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 77 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 78 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 79 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 80 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 81 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 82 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 83 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 84 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 85 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 86 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 87 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 88 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 89 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 90 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 91 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 92 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 93 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 94 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 95 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 96 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 97 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 98 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS
+
+*** n = 99 ***
+Test A PASS
+Test B PASS
+Test C PASS
+Test D PASS

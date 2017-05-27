@@ -1,0 +1,141 @@
+Morgan Howard
+CS362 Assignment5
+
+Team test results
+
+
+-------- unittest1 --------
+Test A PASS
+Test B PASS
+Function 'isGameOver'
+Lines executed:100.00% of 12
+
+-------- unittest2 --------
+Test A PASS
+Test B PASS
+Function 'getCost'
+Lines executed:100.00% of 30
+        -:  771:int getCost(int cardNumber)
+        -:  772:{
+       28:  773:  switch( cardNumber ) 
+        -:  774:    {
+        -:  775:    case curse:
+        1:  776:      return 0;
+        -:  777:    case estate:
+        1:  778:      return 2;
+        -:  779:    case duchy:
+        1:  780:      return 5;
+        -:  781:    case province:
+        1:  782:      return 8;
+        -:  783:    case copper:
+        1:  784:      return 0;
+        -:  785:    case silver:
+        1:  786:      return 3;
+        -:  787:    case gold:
+        1:  788:      return 6;
+        -:  789:    case adventurer:
+        1:  790:      return 6;
+        -:  791:    case council_room:
+        1:  792:      return 5;
+        -:  793:    case feast:
+        1:  794:      return 4;
+        -:  795:    case gardens:
+        1:  796:      return 4;
+        -:  797:    case mine:
+        1:  798:      return 5;
+        -:  799:    case remodel:
+        1:  800:      return 4;
+        -:  801:    case smithy:
+        1:  802:      return 4;
+        -:  803:    case village:
+        1:  804:      return 3;
+        -:  805:    case baron:
+        1:  806:      return 4;
+        -:  807:    case great_hall:
+        1:  808:      return 3;
+        -:  809:    case minion:
+        1:  810:      return 5;
+        -:  811:    case steward:
+        1:  812:      return 3;
+        -:  813:    case tribute:
+        1:  814:      return 5;
+        -:  815:    case ambassador:
+        1:  816:      return 3;
+        -:  817:    case cutpurse:
+        1:  818:      return 4;
+        -:  819:    case embargo: 
+        1:  820:      return 2;
+        -:  821:    case outpost:
+        1:  822:      return 5;
+        -:  823:    case salvager:
+        1:  824:      return 4;
+        -:  825:    case sea_hag:
+        1:  826:      return 4;
+        -:  827:    case treasure_map:
+        1:  828:      return 4;
+        -:  829:    }
+        -:  830:	
+        1:  831:  return -1;
+       28:  832:}
+
+-------- unittest3 --------
+FAIL 7 6
+Test A FAIL 1 0
+FAIL 0 5
+Test B FAIL 1 0
+Test C PASS
+Test D PASS
+Function 'endTurn'
+Lines executed:100.00% of 22
+        -:  350:int endTurn(struct gameState *state) {
+        -:  351:  int k;
+        -:  352:  int i;
+        2:  353:  int currentPlayer = whoseTurn(state);
+        -:  354:  
+        -:  355:  //Discard hand
+       24:  356:  for (i = 0; i < state->handCount[currentPlayer]; i++){
+       10:  357:    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = state->hand[currentPlayer][i];//Discard
+       10:  358:    state->hand[currentPlayer][i] = -1;//Set card to -1
+       10:  359:  }
+        2:  360:  state->handCount[currentPlayer] = 0;//Reset hand count
+        -:  361:    
+        -:  362:  //Code for determining the player
+        2:  363:  if (currentPlayer < (state->numPlayers - 1)){ 
+        1:  364:    state->whoseTurn = currentPlayer + 1;//Still safe to increment
+        1:  365:  }
+        -:  366:  else{
+        1:  367:    state->whoseTurn = 0;//Max player has been reached, loop back around to player 1
+        -:  368:  }
+        -:  369:
+        2:  370:  state->outpostPlayed = 0;
+        2:  371:  state->phase = 0;
+        2:  372:  state->numActions = 1;
+        2:  373:  state->coins = 0;
+        2:  374:  state->numBuys = 1;
+        2:  375:  state->playedCardCount = 0;
+        2:  376:  state->handCount[state->whoseTurn] = 0;
+        -:  377:
+        -:  378:  //int k; move to top
+        -:  379:  //Next player draws hand
+       24:  380:  for (k = 0; k < 5; k++){
+       10:  381:    drawCard(state->whoseTurn, state);//Draw a card
+       10:  382:  }
+        -:  383:
+        -:  384:  //Update money
+        2:  385:  updateCoins(state->whoseTurn, state , 0);
+        -:  386:
+        2:  387:  return 0;
+        -:  388:}
+        -:  389:
+
+-------- unittest4 --------
+Test A PASS
+Test B PASS
+FAIL 3 1
+Test C FAIL 1 0
+Test D PASS
+Test E PASS
+Test F PASS
+Test G PASS
+Function 'buyCard'
+Lines executed:100.00% of 13

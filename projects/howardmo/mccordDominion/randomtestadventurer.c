@@ -109,7 +109,7 @@ int checkAdventurerCard(int p, struct gameState *before, struct gameState *after
     }
 
 
-    result = assertTrue(treasure_test - 2, treasure_baseline, 2);
+    result = assertTrue(treasure_test - 2, treasure_baseline, 0);
     assert_value += result;
 
     printf("Test A ");
@@ -120,7 +120,7 @@ int checkAdventurerCard(int p, struct gameState *before, struct gameState *after
     assert_value = 0;
 
     // BUG: this catches the bug where the adventurer card isn't discarded immediately after being played
-    result = assertTrue(before->handCount[p], after->handCount[p] - 1, 0);
+    result = assertTrue(before->handCount[p], after->handCount[p] - 1, 2);
     assert_value += result;
 
     printf("Test B ");
@@ -133,7 +133,7 @@ int checkAdventurerCard(int p, struct gameState *before, struct gameState *after
 
     delta_discard = after->discardCount[p] - before->discardCount[p];
     delta_deck = before->deckCount[p] - after->deckCount[p];
-    result = assertTrue(delta_deck - 2, delta_discard, 2);
+    result = assertTrue(delta_deck - 2, delta_discard, 0);
     assert_value += result;
 
     printf("Test C ");
@@ -175,6 +175,10 @@ int main() {
     // vars
     struct gameState before, after;
     int number_of_tests = 10000;
+    int choice1 = 0;
+    int choice2 = 0;
+    int choice3 = 0;
+    int bonus = 0;
     int i = 0;
     int p = 0;
     int n = 0;
@@ -251,7 +255,8 @@ int main() {
         memcpy(&after, &before, sizeof(struct gameState));
 
         // play adventurer card in state2
-        card_adventurer(&after, p);
+        //card_adventurer(&after, p);
+        cardEffect(adventurer, choice1, choice2, choice3, &after, handPos, &bonus);
 
         // perform expected actions for adventurer card in state2
 
